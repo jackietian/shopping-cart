@@ -3,6 +3,9 @@ const products = require('./src/data/data');
 const priceConfig = require('./priceConfig');
 
 const checkout = () => {
+    /**
+     * receive your input from terminal
+     */
     process.stdout.write("Scanned SKUs: ")
     const stdin = process.openStdin();
     stdin.addListener("data", function (data) {

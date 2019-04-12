@@ -10,10 +10,18 @@ class ShoppingCart {
         this.pricingRules = priceConfig;
     }
 
+    /**
+     * add item to shopping cart
+     * e.g {ipd: 1, atv: 2, mbp: 3}
+     * @param string sku 
+     */
     scan(sku) {
         this.shoppingCart[sku] = (this.shoppingCart[sku] || 0) + 1;
     }
 
+    /**
+     * calculate the total price
+     */
     total() {
         let total = 0;
         Object.keys(this.shoppingCart).forEach(sku => {
@@ -24,6 +32,10 @@ class ShoppingCart {
         return parseFloat(total.toFixed(2));
     }
 
+    /**
+     * find the correct product based on pricing rules defined in priceConfig.js
+     * @param string sku 
+     */
     findProduct(sku) {
         const {
             name,
