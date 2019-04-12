@@ -5,7 +5,7 @@ const priceConfig = require('../../priceConfig');
 describe('test shopping cart', () => {
     const shoppingCart = new ShoppingCart(data, priceConfig);;
 
-    it('shopping cart', () => {
+    it('test XFORY pricing rule', () => {
         const shoppingCart = new ShoppingCart(data, priceConfig);
         const items = ['atv', 'atv', 'atv', 'vga'];
         items.forEach(item => shoppingCart.scan(item));
@@ -13,7 +13,7 @@ describe('test shopping cart', () => {
         shoppingCart.clear();
     })
 
-    it('shopping cart 2', () => {
+    it('test WHOLESALE pricing rule', () => {
         const shoppingCart = new ShoppingCart(data, priceConfig);
         const items = ['atv', 'ipd', 'ipd', 'atv', 'ipd', 'ipd', 'ipd'];
         items.forEach(item => shoppingCart.scan(item));
@@ -21,7 +21,7 @@ describe('test shopping cart', () => {
         shoppingCart.clear();
     })
 
-    it('shopping cart 3', () => {
+    it('test BUNDLE pricing rule', () => {
         const items = ['mbp', 'vga', 'ipd'];
         items.forEach(item => shoppingCart.scan(item));
         expect(shoppingCart.total()).toBe(1949.98);
