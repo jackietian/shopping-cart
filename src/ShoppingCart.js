@@ -27,7 +27,7 @@ class ShoppingCart {
         Object.keys(this.shoppingCart).forEach(sku => {
             const quantity = this.shoppingCart[sku];
             const product = this.findProduct(sku);
-            total = total + product.priceForQuantity(quantity);
+            total += product.priceForQuantity(quantity);
         })
         return parseFloat(total.toFixed(2));
     }
@@ -64,7 +64,7 @@ class ShoppingCart {
                     bundledSku,
                     discountPrice
                 } = pricingRule;
-                const bundledSkuQuantity = this.shoppingCart[bundledSku] ? this.shoppingCart[bundledSku] : 0;
+                const bundledSkuQuantity = this.shoppingCart[bundledSku] || 0;
                 return new BundleProduct(sku, name, price, bundledSku, discountPrice, bundledSkuQuantity);
             }
         }
